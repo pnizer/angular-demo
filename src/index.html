@@ -10,15 +10,19 @@
 </head>
 <body>
     <div ng-controller="MyCtrl">
-        <input type="text" ng-model="nome" />
-        <input type="button" value="Adicionar" ng-click="add()" />
+        <form ng-submit="add()">
+            <input type="text" ng-model="nome" />
+            <input type="submit" value="Adicionar" />
+        </form>
 
         <ul>
-            <li ng-repeat="todo in lista">
+            <li ng-repeat="todo in lista track by todo.id">
                 <input type="checkbox" ng-model="todo.completada"/>
                 <span ng-class="{riscado: todo.completada}">{{todo.nome}}</span>
             </li>
         </ul>
+
+        <input type="button" value="Limpar" ng-click="limpar()">
     </div>
 </body>
 </html>
