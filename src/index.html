@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>AngularJS Demo</title>
+    <link rel="stylesheet" href="css/app.css"/>
+
+    <script src="js/vendor/angular.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <div ng-controller="MyCtrl">
+        <input type="text" ng-model="nome" />
+        <input type="button" value="Adicionar" ng-click="add()" />
+
+        <ul>
+            <li ng-repeat="todo in lista">
+                <input type="checkbox" ng-model="todo.completada"/>
+                <span ng-class="{riscado: todo.completada}">{{todo.nome}}</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
